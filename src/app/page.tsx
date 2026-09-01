@@ -23,11 +23,11 @@ function Hero() {
         </div>
 
         {/* Headline */}
-        <div className="col-span-1 lg:col-span-7 px-6 lg:px-12 pt-10 pb-20 relative">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.05] text-foreground">
-            Professional <br /> Engineering & <br /> Consultant.
+        <div className="col-span-1 lg:col-span-7 px-6 lg:px-12 pt-6 lg:pt-10 pb-16 lg:pb-20 relative">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.05] text-foreground">
+            Professional <br className="hidden sm:block" /> Engineering & <br /> Consultant.
           </h1>
-          <p className="mt-8 font-mono text-sm tracking-wide text-foreground-muted max-w-md uppercase leading-relaxed">
+          <p className="mt-8 font-mono text-xs sm:text-sm tracking-wide text-foreground-muted max-w-md uppercase leading-relaxed">
             We built engineering and technical solutions to reduce risk and scale execution for our clients.
           </p>
         </div>
@@ -71,11 +71,11 @@ function Hero() {
         </div>
 
         {/* Bottom Actions */}
-        <div className="col-span-1 lg:col-span-10 grid grid-cols-1 md:grid-cols-2 mt-auto">
-          <a href="/" className="py-6 flex items-center justify-center font-mono text-sm font-bold uppercase tracking-wider bg-white grid-border-r grid-border-t hover:bg-black/5 transition-colors">
+        <div className="col-span-1 lg:col-span-10 grid grid-cols-1 md:grid-cols-2 mt-auto border-t border-black/10">
+          <a href="/" className="py-6 flex items-center justify-center font-mono text-xs sm:text-sm font-bold uppercase tracking-wider bg-white border-b md:border-b-0 border-black/10 md:grid-border-r hover:bg-black/5 transition-colors">
             Explore Services
           </a>
-          <a href="/about-us/company-profile" className="py-6 flex items-center justify-center font-mono text-sm font-bold uppercase tracking-wider bg-foreground text-white grid-border-t hover:bg-black/90 transition-colors">
+          <a href="/about-us/company-profile" className="py-6 flex items-center justify-center font-mono text-xs sm:text-sm font-bold uppercase tracking-wider bg-foreground text-white hover:bg-black/90 transition-colors">
             Company Profile
           </a>
         </div>
@@ -83,17 +83,17 @@ function Hero() {
       
       {/* Stats Bar */}
       <div className="col-span-12 grid grid-cols-1 md:grid-cols-3">
-        <div className="p-8 grid-border-r flex flex-col">
+        <div className="p-8 border-b border-black/10 md:border-b-0 md:grid-border-r flex flex-col">
           <span className="text-accent-brand mb-4 font-mono text-xs">╔</span>
-          <h4 className="font-mono text-sm font-bold uppercase tracking-widest leading-relaxed">Top Engineering <br/> Firm in BD</h4>
+          <h4 className="font-mono text-sm font-bold uppercase tracking-widest leading-relaxed">Top Engineering <br className="hidden md:block"/> Firm in BD</h4>
         </div>
-        <div className="p-8 grid-border-r flex flex-col">
+        <div className="p-8 border-b border-black/10 md:border-b-0 md:grid-border-r flex flex-col">
           <span className="text-accent-brand mb-4 font-mono text-xs">╔</span>
-          <h4 className="font-mono text-sm font-bold uppercase tracking-widest leading-relaxed">Certified Fire <br/> Protection Experts</h4>
+          <h4 className="font-mono text-sm font-bold uppercase tracking-widest leading-relaxed">Certified Fire <br className="hidden md:block"/> Protection Experts</h4>
         </div>
         <div className="p-8 flex flex-col">
           <span className="text-accent-brand mb-4 font-mono text-xs">╔</span>
-          <h4 className="font-mono text-sm font-bold uppercase tracking-widest leading-relaxed">From Installation <br/> To Maintenance</h4>
+          <h4 className="font-mono text-sm font-bold uppercase tracking-widest leading-relaxed">From Installation <br className="hidden md:block"/> To Maintenance</h4>
         </div>
       </div>
     </section>
@@ -137,20 +137,20 @@ function Team() {
   return (
     <section className="grid grid-cols-12 border-t border-black/10">
       {/* Title Sidebar */}
-      <div className="col-span-12 lg:col-span-3 grid-border-r p-6 lg:p-12 bg-white">
+      <div className="col-span-12 lg:col-span-3 border-b border-black/10 lg:border-b-0 lg:grid-border-r p-6 lg:p-12 bg-white">
         <div className="flex items-center bg-black/5 rounded-sm w-max mb-8">
           <span className="bg-accent-brand text-white font-mono text-xs font-bold px-2 py-1">02</span>
           <span className="font-mono text-xs font-bold px-3 uppercase tracking-wider">Team</span>
         </div>
         <h2 className="text-4xl lg:text-5xl font-medium tracking-tight leading-tight">
-          Meet our <br/> leaders
+          Meet our <br className="hidden lg:block"/> leaders
         </h2>
       </div>
 
       {/* Grid Content */}
-      <div className="col-span-12 lg:col-span-9 bg-background grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="col-span-12 lg:col-span-9 bg-background grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {team.map((member, i) => (
-          <div key={i} className="p-8 flex flex-col grid-border-b grid-border-r hover:bg-black/5 transition-colors group">
+          <div key={i} className="p-8 flex flex-col border-b border-black/10 sm:border-r sm:border-black/10 lg:grid-border-b lg:grid-border-r hover:bg-black/5 transition-colors group">
             <div className="w-24 h-24 mb-8 relative border-2 border-transparent group-hover:border-accent-brand transition-colors p-1">
               <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent-brand opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
@@ -181,7 +181,7 @@ function Clients() {
       </div>
       <div className="col-span-12 lg:col-span-9 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {clients.map((client, i) => (
-          <div key={i} className="p-6 grid-border-r flex items-center justify-center grid-border-b lg:grid-border-b-0 h-24 hover:bg-black/5 transition-colors">
+          <div key={i} className="p-6 border-b border-r border-black/10 lg:border-b-0 hover:bg-black/5 transition-colors flex items-center justify-center h-24">
             <img src={client.logo} alt={client.name} className="max-w-full max-h-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all mix-blend-multiply" />
           </div>
         ))}
@@ -194,13 +194,13 @@ function Certifications() {
   return (
     <section className="grid grid-cols-12 border-t border-black/10 bg-accent-brand text-white">
       {/* Title Sidebar */}
-      <div className="col-span-12 lg:col-span-3 border-r border-white/20 p-6 lg:p-12">
+      <div className="col-span-12 lg:col-span-3 border-b lg:border-b-0 lg:border-r border-white/20 p-6 lg:p-12">
         <div className="flex items-center bg-black/20 rounded-sm w-max mb-8">
           <span className="bg-white text-accent-brand font-mono text-xs font-bold px-2 py-1">03</span>
           <span className="font-mono text-xs font-bold px-3 uppercase tracking-wider text-white">Certifications</span>
         </div>
         <h2 className="text-4xl lg:text-5xl font-medium tracking-tight leading-tight text-white drop-shadow-md">
-          Global <br/> Standards
+          Global <br className="hidden lg:block"/> Standards
         </h2>
         <p className="mt-6 font-mono text-xs tracking-wide text-white/90 uppercase leading-relaxed">
           We are committed to maintaining the highest international standards in our operations, quality, and environmental management.
@@ -236,13 +236,13 @@ function Products() {
   return (
     <section className="grid grid-cols-12 border-t border-black/10 bg-white">
       {/* Title Sidebar */}
-      <div className="col-span-12 lg:col-span-3 grid-border-r p-6 lg:p-12 bg-background">
+      <div className="col-span-12 lg:col-span-3 border-b border-black/10 lg:border-b-0 lg:grid-border-r p-6 lg:p-12 bg-background">
         <div className="flex items-center bg-black/5 rounded-sm w-max mb-8">
           <span className="bg-accent-brand text-white font-mono text-xs font-bold px-2 py-1">04</span>
           <span className="font-mono text-xs font-bold px-3 uppercase tracking-wider">Solutions</span>
         </div>
         <h2 className="text-4xl lg:text-5xl font-medium tracking-tight leading-tight">
-          Our <br/> Products
+          Our <br className="hidden lg:block"/> Products
         </h2>
         <p className="mt-6 font-mono text-xs tracking-wide text-foreground-muted uppercase leading-relaxed">
           Comprehensive engineering products and solutions tailored for industrial and commercial needs.
@@ -250,9 +250,9 @@ function Products() {
       </div>
 
       {/* Grid Content */}
-      <div className="col-span-12 lg:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="col-span-12 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((cat, i) => (
-          <a key={i} href={cat.href} className="p-8 flex flex-col grid-border-b grid-border-r hover:bg-black/5 transition-all group relative overflow-hidden bg-white min-h-[280px]">
+          <a key={i} href={cat.href} className="p-8 flex flex-col border-b border-black/10 sm:border-r sm:border-black/10 lg:grid-border-b lg:grid-border-r hover:bg-black/5 transition-all group relative overflow-hidden bg-white min-h-[280px]">
             {/* Background Image Container */}
             <div className="absolute inset-4 z-0 overflow-hidden bg-[#f9f9f9]">
                <img 
