@@ -44,7 +44,7 @@ function Hero() {
                 <img 
                   src="https://oel.com.bd/wp-content/uploads/2021/01/slider_1.jpg" 
                   alt="Engineering Project"
-                  className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover lg:grayscale opacity-80 mix-blend-multiply group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
 
@@ -152,8 +152,8 @@ function Team() {
         {team.map((member, i) => (
           <div key={i} className="p-4 sm:p-8 flex flex-col items-center text-center border-b border-r border-black/10 lg:grid-border-b lg:grid-border-r hover:bg-black/5 transition-colors group">
             <div className="w-16 h-16 sm:w-24 sm:h-24 mb-4 sm:mb-8 relative border-2 border-transparent group-hover:border-accent-brand transition-colors p-1 rounded-full sm:rounded-none overflow-hidden">
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent-brand opacity-0 group-hover:opacity-100 transition-opacity z-10 hidden sm:block"></div>
-              <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all rounded-full sm:rounded-none" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent-brand opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity z-10 hidden sm:block"></div>
+              <img src={member.image} alt={member.name} className="w-full h-full object-cover lg:grayscale group-hover:grayscale-0 transition-all rounded-full sm:rounded-none" />
             </div>
             <h3 className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1 sm:mb-2 text-foreground">{member.name}</h3>
             <p className="text-accent-brand text-[8px] sm:text-[10px] font-bold tracking-widest uppercase">{member.role}</p>
@@ -182,7 +182,7 @@ function Clients() {
       <div className="col-span-12 lg:col-span-9 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         {clients.map((client, i) => (
           <div key={i} className="p-6 border-b border-r border-black/10 lg:border-b-0 hover:bg-black/5 transition-colors flex items-center justify-center h-24">
-            <img src={client.logo} alt={client.name} className="max-w-full max-h-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all mix-blend-multiply" />
+            <img src={client.logo} alt={client.name} className="max-w-full max-h-full object-contain lg:grayscale lg:opacity-60 lg:hover:grayscale-0 lg:hover:opacity-100 transition-all mix-blend-multiply" />
           </div>
         ))}
       </div>
@@ -258,10 +258,10 @@ function Products() {
                <img 
                  src={cat.image} 
                  alt={cat.title} 
-                 className="w-full h-full object-cover grayscale opacity-20 mix-blend-multiply group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
+                 className="w-full h-full object-cover lg:grayscale opacity-40 lg:opacity-20 mix-blend-multiply group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
                />
                {/* Overlay to ensure text readability */}
-               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
             <div className="absolute top-0 right-0 w-16 h-16 bg-background rounded-bl-full -mr-8 -mt-8 z-0"></div>
@@ -273,7 +273,7 @@ function Products() {
             </div>
 
             {/* Arrow indicator */}
-            <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300 z-10 text-white drop-shadow-md">
+            <div className="absolute bottom-8 right-8 opacity-100 lg:opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300 z-10 text-white drop-shadow-md">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </div>
           </a>
@@ -294,3 +294,4 @@ export default function Home() {
     </main>
   );
 }
+
