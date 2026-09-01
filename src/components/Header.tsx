@@ -142,11 +142,11 @@ function MobileMenuItem({ item, depth = 0 }: { item: any, depth?: number }) {
 
   return (
     <li className="w-full flex flex-col border-b border-black/10 last:border-0">
-      <div className="flex items-center justify-between hover:bg-black/5">
+      <div className="flex items-center justify-between hover:bg-black/5 relative">
         <Link 
           href={item.href} 
           className={cn(
-            "py-4 px-6 font-mono uppercase tracking-wider font-bold text-foreground flex-1",
+            "py-4 px-6 font-mono uppercase tracking-wider font-bold text-foreground flex-1 pr-16",
             depth === 0 ? "text-sm" : "text-xs"
           )}
         >
@@ -154,10 +154,15 @@ function MobileMenuItem({ item, depth = 0 }: { item: any, depth?: number }) {
         </Link>
         {hasSubmenu && (
           <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="p-4 h-full flex items-center justify-center text-foreground hover:bg-black/10 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsExpanded((prev) => !prev);
+            }}
+            className="absolute right-0 top-0 bottom-0 w-16 flex items-center justify-center text-foreground hover:bg-black/10 transition-colors z-10"
+            aria-expanded={isExpanded}
           >
-            {isExpanded ? <ChevronDown className="w-5 h-5 text-accent-brand" /> : <ChevronRight className="w-5 h-5" />}
+            {isExpanded ? <ChevronDown className="w-6 h-6 text-accent-brand" /> : <ChevronRight className="w-6 h-6" />}
           </button>
         )}
       </div>
