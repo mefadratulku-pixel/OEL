@@ -134,23 +134,53 @@ export function renderMenu(items: any[], depth = 0) {
   );
 }
 
-// Mobile rendering is an accordion style
+// Interactive Mobile Menu Item component
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function renderMobileMenu(items: any[], depth = 0) {
+function MobileMenuItem({ item, depth = 0 }: { item: any, depth?: number }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const hasSubmenu = item.submenu && item.submenu.length > 0;
+
   return (
-    <ul className="flex flex-col w-full">
-      {items.map((item, idx) => (
-        <li key={idx} className="w-full flex flex-col border-b border-black/10 last:border-0">
-          <Link href={item.href} className="py-4 px-6 font-mono text-sm uppercase tracking-wider font-bold text-foreground hover:bg-black/5 flex justify-between">
-            {item.title}
-            {item.submenu && <ChevronRight className="w-4 h-4" />}
-          </Link>
-          {item.submenu && (
-            <div className="pl-6 bg-black/5">
-              {renderMobileMenu(item.submenu, depth + 1)}
-            </div>
+    <li className="w-full flex flex-col border-b border-black/10 last:border-0">
+      <div className="flex items-center justify-between hover:bg-black/5">
+        <Link 
+          href={item.href} 
+          className={cn(
+            "py-4 px-6 font-mono uppercase tracking-wider font-bold text-foreground flex-1",
+            depth === 0 ? "text-sm" : "text-xs"
           )}
-        </li>
+        >
+          {item.title}
+        </Link>
+        {hasSubmenu && (
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="p-4 h-full flex items-center justify-center text-foreground hover:bg-black/10 transition-colors"
+          >
+            {isExpanded ? <ChevronDown className="w-5 h-5 text-accent-brand" /> : <ChevronRight className="w-5 h-5" />}
+          </button>
+        )}
+      </div>
+      {hasSubmenu && isExpanded && (
+        <div className="bg-black/5 border-t border-black/5 animate-in slide-in-from-top-1">
+          <ul className="flex flex-col w-full pl-2 border-l border-accent-brand/20 ml-2">
+            {item.submenu.map((subItem: any, idx: number) => (
+              <MobileMenuItem key={idx} item={subItem} depth={depth + 1} />
+            ))}
+          </ul>
+        </div>
+      )}
+    </li>
+  );
+}
+
+// Mobile rendering is now an interactive accordion
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function renderMobileMenu(items: any[]) {
+  return (
+    <ul className="flex flex-col w-full pb-4">
+      {items.map((item, idx) => (
+        <MobileMenuItem key={idx} item={item} />
       ))}
     </ul>
   );
