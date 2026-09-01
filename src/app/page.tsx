@@ -148,15 +148,15 @@ function Team() {
       </div>
 
       {/* Grid Content */}
-      <div className="col-span-12 lg:col-span-9 bg-background grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="col-span-12 lg:col-span-9 bg-background grid grid-cols-2 lg:grid-cols-3">
         {team.map((member, i) => (
-          <div key={i} className="p-8 flex flex-col border-b border-black/10 sm:border-r sm:border-black/10 lg:grid-border-b lg:grid-border-r hover:bg-black/5 transition-colors group">
-            <div className="w-24 h-24 mb-8 relative border-2 border-transparent group-hover:border-accent-brand transition-colors p-1">
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent-brand opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
+          <div key={i} className="p-4 sm:p-8 flex flex-col items-center text-center border-b border-r border-black/10 lg:grid-border-b lg:grid-border-r hover:bg-black/5 transition-colors group">
+            <div className="w-16 h-16 sm:w-24 sm:h-24 mb-4 sm:mb-8 relative border-2 border-transparent group-hover:border-accent-brand transition-colors p-1 rounded-full sm:rounded-none overflow-hidden">
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent-brand opacity-0 group-hover:opacity-100 transition-opacity z-10 hidden sm:block"></div>
+              <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all rounded-full sm:rounded-none" />
             </div>
-            <h3 className="font-mono text-xs font-bold uppercase tracking-widest mb-2 text-foreground">{member.name}</h3>
-            <p className="text-accent-brand text-[10px] font-bold tracking-widest uppercase">{member.role}</p>
+            <h3 className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1 sm:mb-2 text-foreground">{member.name}</h3>
+            <p className="text-accent-brand text-[8px] sm:text-[10px] font-bold tracking-widest uppercase">{member.role}</p>
           </div>
         ))}
       </div>
